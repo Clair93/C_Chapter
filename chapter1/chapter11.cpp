@@ -190,46 +190,190 @@
 //	return 0;
 //}
 //
+//
+//// chpater 11 자가진단 8
+//
+//#include <stdio.h>
+//
+//void input(int &x, int &y) {
+//	scanf("%d %d", &x, &y);
+//	int temp;
+//
+//	if (x < y) {
+//		x = x;
+//		y = y;
+//	}
+//	else {
+//		temp = x;
+//		x = y;
+//		y = temp;
+//	}
+//
+//}
+//
+//void output(int i) {
+//	int j;
+//
+//	printf("== %ddan ==\n",i);
+//	for (j = 1; j <= 9; j++) {
+//		printf("%d * %d = %2d\n", i, j, i * j);
+//	}
+//	printf("\n");
+//}
+//
+//int main()
+//{
+//	int a, b, i;
+//	
+//	input(a, b);
+//
+//	for (i = a; i <= b; i++) {
+//		output(i);
+//	}
+//
+//	return 0;
+//}
+//
 
-// chpater 11 자가진단 8
+// chapter 11 형성평가 01
 
 #include <stdio.h>
 
-void input(int &x, int &y) {
-	scanf("%d %d", &x, &y);
-	int temp;
-
-	if (x < y) {
-		x = x;
-		y = y;
-	}
-	else {
-		temp = x;
-		x = y;
-		y = temp;
-	}
-
-}
-
-void output(int i) {
-	int j;
-
-	printf("== %ddan ==\n",i);
-	for (j = 1; j <= 9; j++) {
-		printf("%d * %d = %2d\n", i, j, i * j);
-	}
-	printf("\n");
+void STR() {
+	puts("@@@@@@@@@@");
 }
 
 int main()
 {
-	int a, b, i;
-	
+	puts("first");
+	STR();
+	puts("second");
+	STR();
+	puts("third");
+	STR();
+
+	return 0;
+}
+
+
+// chapter 11 형성평가 02
+
+#include <stdio.h>
+
+int GetSum(int n) {
+	int i;
+	int sum = 0;
+
+	for (i = 1; i <= n; i++) {
+		sum += i;
+	}
+
+	return sum;
+}
+
+int main()
+{
+	int a;
+
+	scanf("%d", &a);
+
+	printf("%d", GetSum(a));
+
+	return 0;
+}
+
+
+// chapter 11 형성평가 03
+
+#include <stdio.h>
+
+void Arr(int n) {
+	int i, j;
+
+	for (i = 1; i <= n; i++) {
+		for (j = 1; j <= n; j++) {
+			printf("%d ", i * j);
+		}
+		printf("\n");
+	}
+}
+
+int main()
+{
+	int a;
+
+	scanf("%d", &a);
+
+	Arr(a);
+
+	return 0;
+}
+
+
+// chapter 11 형성평가 04
+
+#include <stdio.h>
+
+void input(int &a, int &b) 
+{
+	scanf("%d %d", &a, &b);
+	int temp = 0;
+	if (a < b) {
+		temp = a;
+		a = b;
+		b = temp;
+	}
+}
+
+int Pow(int x, int y) {
+	int sum = 0;
+
+	sum = (x * x) - (y * y);
+
+	return sum;
+}
+
+int main()
+{
+	int a, b;
+
 	input(a, b);
 
-	for (i = a; i <= b; i++) {
-		output(i);
+	printf("%d", Pow(a, b));
+
+	return 0;
+}
+
+
+// chapter 11 형성평가 05
+
+#include <stdio.h>
+
+void scoresum() 
+{
+	int arry[4][4] = { 0 };
+	int i, j;
+
+	for (i = 0; i < 3; i++) {
+		for (j = 0; j < 3; j++) {
+			scanf("%d", &arry[i][j]);
+			arry[i][3] += arry[i][j];
+			arry[3][j] += arry[i][j];
+			arry[3][3] += arry[i][j];
+		}
 	}
+
+	for (i = 0; i < 4; i++) {
+		for (j = 0; j < 4; j++) {
+			printf("%d ", arry[i][j]);
+		}
+		printf("\n");
+	}
+}
+
+int main()
+{
+	scoresum();
 
 	return 0;
 }
