@@ -237,7 +237,7 @@
 //	return 0;
 //}
 //
-
+/*
 // chapter10 형성평가 10
 #include <stdio.h>
 
